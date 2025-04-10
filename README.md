@@ -1,6 +1,5 @@
 # My-Calc - Scientific Calculator with Urdu Support
 
-![My-Calc Logo](https://via.placeholder.com/150) <!-- Replace with your logo -->
 
 A feature-rich calculator application with full Urdu language support, including both basic and scientific calculation modes.
 

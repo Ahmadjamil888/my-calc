@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCalc - Smart Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="header">
+            <h1 id="appTitle">MyCalc - Smart Calculator</h1>
+            <button class="language-switch" id="languageSwitch">اردو</button>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="normal" id="normalTab">Normal</div>
+            <div class="tab" data-tab="scientific" id="sciTab">Scientific</div>
+        </div>
+        
+        <!-- Normal Calculator -->
+        <div class="tab-content active" id="normal">
+            <div class="display">
+                <div class="history" id="normalHistory"></div>
+                <div class="current-input" id="normalInput">0</div>
+            </div>
+            <div class="buttons-grid">
+                <button class="btn btn-clear" onclick="clearDisplay('normal')" id="normalAC">AC</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('normal', '(')" id="normalOpenBracket">(</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('normal', ')')" id="normalCloseBracket">)</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('normal', '/')" id="normalDivide">/</button>
+                
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '7')" id="normal7">7</button>
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '8')" id="normal8">8</button>
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '9')" id="normal9">9</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('normal', '*')" id="normalMultiply">×</button>
+                
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '4')" id="normal4">4</button>
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '5')" id="normal5">5</button>
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '6')" id="normal6">6</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('normal', '-')" id="normalSubtract">-</button>
+                
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '1')" id="normal1">1</button>
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '2')" id="normal2">2</button>
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '3')" id="normal3">3</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('normal', '+')" id="normalAdd">+</button>
+                
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '0')" id="normal0">0</button>
+                <button class="btn btn-number" onclick="appendToDisplay('normal', '.')" id="normalDecimal">.</button>
+                <button class="btn btn-clear" onclick="backspace('normal')" id="normalBackspace">⌫</button>
+                <button class="btn btn-equals" onclick="calculate('normal')" id="normalEquals">=</button>
+            </div>
+        </div>
+        
+        <!-- Scientific Calculator -->
+        <div class="tab-content" id="scientific">
+            <div class="display">
+                <div class="history" id="sciHistory"></div>
+                <div class="current-input" id="sciInput">0</div>
+            </div>
+            <div class="sci-buttons">
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.sin(')" id="sciSin">sin</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.cos(')" id="sciCos">cos</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.tan(')" id="sciTan">tan</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.log(')" id="sciLog">log</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.log10(')" id="sciLog10">log10</button>
+                
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.asin(')" id="sciAsin">sin⁻¹</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.acos(')" id="sciAcos">cos⁻¹</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.atan(')" id="sciAtan">tan⁻¹</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.sqrt(')" id="sciSqrt">√</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.PI')" id="sciPi">π</button>
+                
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', '(')" id="sciOpenBracket">(</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', ')')" id="sciCloseBracket">)</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', '^')" id="sciPower">^</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', 'Math.E')" id="sciE">e</button>
+                <button class="btn btn-sci" onclick="appendToDisplay('sci', '!')" id="sciFactorial">n!</button>
+            </div>
+            <div class="buttons-grid">
+                <button class="btn btn-clear" onclick="clearDisplay('sci')" id="sciAC">AC</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('sci', '(')" id="sciOpenBracket2">(</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('sci', ')')" id="sciCloseBracket2">)</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('sci', '/')" id="sciDivide">/</button>
+                
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '7')" id="sci7">7</button>
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '8')" id="sci8">8</button>
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '9')" id="sci9">9</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('sci', '*')" id="sciMultiply">×</button>
+                
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '4')" id="sci4">4</button>
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '5')" id="sci5">5</button>
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '6')" id="sci6">6</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('sci', '-')" id="sciSubtract">-</button>
+                
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '1')" id="sci1">1</button>
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '2')" id="sci2">2</button>
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '3')" id="sci3">3</button>
+                <button class="btn btn-operator" onclick="appendToDisplay('sci', '+')" id="sciAdd">+</button>
+                
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '0')" id="sci0">0</button>
+                <button class="btn btn-number" onclick="appendToDisplay('sci', '.')" id="sciDecimal">.</button>
+                <button class="btn btn-clear" onclick="backspace('sci')" id="sciBackspace">⌫</button>
+                <button class="btn btn-equals" onclick="calculate('sci')" id="sciEquals">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

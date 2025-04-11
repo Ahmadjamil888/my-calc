@@ -1,5 +1,5 @@
 # My-Calc - Scientific Calculator with Urdu Support
-
+<img src="https://raw.githubusercontent.com/Ahmadjamil888/my-calc/refs/heads/main/Screenshot%20(25).png">
 
 A feature-rich calculator application with full Urdu language support, including both basic and scientific calculation modes.
 
